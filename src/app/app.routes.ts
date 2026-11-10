@@ -1,0 +1,39 @@
+import { CanActivateFn, Route, Routes } from '@angular/router';
+import { CATALOG ,LanguageService, Locale, LOCALE_PREFIX } from './secogroupe-centers/services/language.service';
+import { inject } from '@angular/core';
+
+export const routes: Routes = [
+    { path: '', pathMatch: 'full', loadComponent: ()=> import('./pages/home/home')  },
+    { path: 'request-a-quote', loadComponent: ()=> import('./pages/request-a-quote/request-a-quote') },
+    { path: 'about-us', loadComponent: ()=> import('./pages/about/about')  },
+    { path: 'preferred-vendors', loadComponent: ()=> import('./pages/preferred-vendors/preferred-vendors')  },
+    { path: 'services', loadComponent: ()=> import('./pages/all-services/all-services') },
+    { path: 'services/staffing-solutions', loadComponent: ()=> import('./pages/services/staffing-solutions/staffing-solutions') },
+    { path: 'services/hospitality-support', loadComponent: ()=> import('./pages/services/hospitality-support/hospitality-support') },
+    { path: 'services/janitorial-cleaning', loadComponent: ()=> import('./pages/services/janitorial-cleaning/janitorial-cleaning') },
+    { path: 'services/building-maintenance', loadComponent: ()=> import('./pages/services/building-maintenance/building-maintenance') },
+    { path: 'services/outdoor-care', loadComponent: ()=> import('./pages/services/outdoor-care/outdoor-care') },
+    { path: 'services/concierge-security-experts', loadComponent: ()=> import('./pages/services/concierge-security-experts/concierge-security-experts') },
+    { path: 'services-country/:pays', loadComponent: ()=> import('./pages/services-country/services-country') , pathMatch: 'full'},
+    { path: 'services/:pays/:service', loadComponent: ()=> import('./pages/services-country-details/services-country-details') , pathMatch: 'full'},
+    { path: 'cookie-policy', loadComponent: ()=> import('./pages/cookie-policy/cookie-policy') , pathMatch: 'full'},
+    { path: 'privacy-policy', loadComponent: ()=> import('./pages/privacy-policy/privacy-policy') , pathMatch: 'full'},
+    { path: 'terms-of-service', loadComponent: ()=> import('./pages/terms-of-service/terms-of-service') , pathMatch: 'full'},
+    { path: 'contact', loadComponent: ()=> import('./pages/contact/contact') },
+    { path: 'hiring', loadComponent: ()=> import('./pages/hiring/hiring-page') },
+    { path: 'apply-now', loadComponent: ()=> import('./pages/apply-now/apply-now') },
+    { path: 'foned', loadComponent: ()=> import('./pages/foned-form/foned-form') },
+    { path: 'blog', loadComponent: ()=> import('./pages/blog/blog') },
+    { path: 'seco-response', loadChildren: () => import('./secogroupe-centers/secogroupe-centers.routes')},   
+    { path: 'blog/:slug', loadComponent: ()=> import('./pages/blog-detail/blog-detail') }
+];
+
+
+
+const useLocale =
+  (locale: Locale): CanActivateFn =>
+  () => {
+    inject(LanguageService).setLanguage(locale);
+    return true;
+  };
+

@@ -1,0 +1,59 @@
+<section class="w-full py-10">
+    <cc-container>
+        <div class="flex flex-col items-center text-center">
+            <h1 animateOnScroll class="fade-up text-3xl lg:text-5xl poppins-bold lg:leading-13 mb-2.5 max-w-3xl">{{content().title}}</h1>
+            <p animateOnScroll class="fade-up poppins-light text-lg max-w-2xl">{{content().lead}}</p>
+        </div>
+    </cc-container>
+</section>
+
+<section class="py-5">
+    <cc-container>
+        <div class="flex flex-col items-center gap-10">
+            @for (category of content().categories; track category.title) {
+                <div class="max-w-3xl w-full">
+                    <h2 animateOnScroll class="fade-up text-xl poppins-semibold mb-4">{{category.title}}</h2>
+
+                    <div class="flex flex-col gap-3">
+                        @for (item of category.items; track item.question) {
+                            <details animateOnScroll class="fade-up faq-item group border border-gray-200 rounded-xl shadow-sm open:shadow-md transition">
+                                <summary class="flex items-center justify-between gap-5 p-5 cursor-pointer poppins-semibold text-blue-900">
+                                    <span>{{item.question}}</span>
+                                    <i class="ri-add-line text-xl shrink-0 transition group-open:rotate-45" aria-hidden="true"></i>
+                                </summary>
+                                <p class="px-5 pb-5 poppins-light text-sm leading-6 text-slate-700">{{item.answer}}</p>
+                            </details>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </cc-container>
+</section>
+
+<section class="py-10">
+    <cc-container>
+        <div class="flex flex-col items-center">
+            <div animateOnScroll class="fade-up max-w-3xl w-full border border-blue-200 bg-blue-100 p-8 rounded-xl text-center flex flex-col items-center gap-3">
+                <h2 class="text-xl poppins-semibold text-blue-900">{{content().cta.title}}</h2>
+                <p class="poppins-light text-sm max-w-xl">{{content().cta.desc}}</p>
+
+                <div class="flex flex-wrap justify-center gap-3 mt-2">
+                    <a
+                        [routerLink]="language.localize(content().cta.primary.url)"
+                        class="bg-blue-800 text-white px-5 py-2.5 rounded-lg poppins-semibold text-sm">
+                        {{content().cta.primary.label}}
+                    </a>
+
+                    @if (company().contact.email) {
+                        <a
+                            [href]="'mailto:' + company().contact.email"
+                            class="bg-white border border-blue-200 text-blue-900 px-5 py-2.5 rounded-lg poppins-semibold text-sm">
+                            {{content().cta.contact}}
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </cc-container>
+</section>

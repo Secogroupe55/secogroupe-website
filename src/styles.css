@@ -1,0 +1,565 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+
+ @import './myfonts.css';
+
+
+ @plugin '@tailwindcss/typography';
+
+ @layer utilities {
+  .no-scrollbar::-webkit-scrollbar{
+    display: none;
+  }
+
+  .no-scrollbar{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+ }
+  
+.inter-100,
+.inter-200,
+.inter-300,
+.inter-400,
+.inter-500,
+.inter-600,
+.inter-700,
+.inter-800,
+.inter-900 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+
+.inter-100{
+    font-weight: 100;
+}
+
+.inter-200{
+    font-weight: 200;
+}
+
+.inter-300{
+    font-weight: 300;
+}
+
+.inter-400{
+    font-weight: 400;
+}
+
+.inter-500{
+    font-weight: 500;
+}
+
+.inter-600{
+    font-weight: 600;
+}
+
+.inter-700{
+    font-weight: 700;
+}
+
+.inter-800{
+    font-weight: 800;
+}
+
+.inter-900{
+    font-weight: 900;
+} 
+
+
+html{
+  overflow-x: hidden;
+ }
+   
+   :root{
+            --v4-prim-bg: #F7941D;
+            --v4-sec-bg: #0c73ba;
+            --my-prim-bg: #0d6efd;
+            --my-sec-bg: #F7941D;
+            --my-hover-prim-bg: #0b5dd9;
+            --my-hover-sec-bg: #d59113;
+            --text-color: #4a4a4a;
+            --color: #e6e6e6;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: auto !important;
+            width: 100%;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        }
+        /* .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        } */
+        .nav-link {
+      position: relative;
+    }
+
+    .nav-link.active{
+      color: var(--my-sec-bg);
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -2px;
+      background: var(--my-sec-bg); /* Bleu Tailwind (blue-500) */
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+         @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 20s linear infinite;
+        }
+
+
+    .auto-rotate{
+      animation: auto-rotate-animation;
+      animation-timeline: view();
+    }
+
+
+    @keyframes auto-rotate-animation {
+      from{
+        transform: rotate(0deg);
+      }
+
+      to{
+        transform: rotate(360deg);
+      }
+    }
+
+    .auto-show{
+      animation: text-appear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 100vh;
+    }
+
+    @keyframes text-appear {
+      from{
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      to{
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .image-reveal{
+      animation: image-reveal-animation both;
+      animation-timeline: view(10% 5%);
+    }
+
+    @keyframes image-reveal-animation {
+      from{
+        filter: saturate(0) contrast(4) brightness(.1) blur(5px);
+        opacity: 0;
+        scale: .95;
+        translate: 0 4rem;
+      }
+      to{
+        filter: none;
+        opacity: 1;
+        scale: 1;
+        translate: 0 0;
+      }
+    }
+
+    /* .fade-up{
+      animation: fade-up-animation;
+      animation-timeline: view()
+    }
+
+    @keyframes fade-up-animation {
+      from{
+        opacity: 0%;
+        transform: translateY(10px) scale(0.5);
+      }
+      to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    } */
+
+
+
+.typewriter-container{
+  display: inline-block;
+}
+
+.typewriter-text{
+  /* border-right: 5px solid; */
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(13);
+              /* cursor 400ms step-end infinite alternate;  */
+}
+
+@keyframes cursor{
+  50%{
+    border-color: transparent;
+  }
+}
+
+@keyframes typing{
+  from{
+    width: 0;
+  }
+}
+
+/* .fade-up{
+    transform: translateY(10%) scale(0.9);
+    opacity: 0.9;
+    transition: all 700ms ease-in-out ;
+}
+
+.section-animate.active .fade-up{
+    transform: translateY(0%) scale(1);
+    opacity: 1;
+}
+
+.fade-right{
+    transform: translateX(-5%);
+    opacity: 0.9;
+    transition: all 700ms ease-in-out ;
+    
+}
+
+.section-animate.active .fade-right{
+    transform: translateX(0%);
+    opacity: 1;
+} */
+
+/* .fade-left{
+    transform: translateX(5%);
+    opacity: 0.9;
+    transition: all 700ms ease-in-out ;
+    transition-delay: 500ms;
+} */
+
+/* .section-animate.active .fade-left{
+    transform: translateX(0%);
+    opacity: 1;
+} */
+
+
+
+.fade-up{
+    transform: translateY(25%) scale(0.95);
+    opacity: 0;
+    transition: all 600ms ease-in-out ;
+    
+}
+
+.fade-down{
+    transform: translateY(-25%) ;
+    opacity: 0;
+    transition: all 600ms ease-in-out ;
+    
+}
+
+.blur-up{
+    transform: scale(0.9);
+    opacity: 0;
+    filter: blur(3px);
+    transition: all 300ms ease-in-out ;
+}
+
+.blur-up.active{
+    transform: scale(1);
+    filter: blur(0px);
+    opacity: 1;
+}
+
+.fade-up.active, .fade-down.active{
+    transform: translateY(0%) scale(1);
+    opacity: 1;
+}
+
+.fade-right{
+    transform: translateX(-25%);
+    opacity: 0;
+    transition: all 700ms ease-in-out ;
+    /* transition-delay: 500ms; */
+}
+
+.fade-left{
+    transform: translateX(25%);
+    opacity: 0;
+    transition: all 700ms ease-in-out ;
+    /* transition-delay: 500ms; */
+}
+
+.fade-right.active, .fade-left.active{
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.fade-up,.blur-up,.fade-right,.fade-left{
+  transition-delay: calc((sibling-index() - 1) * 200ms);
+}
+
+.border-gradient{
+  /* border-color: linear-gradient(to right, #faaf3b, #ffbd5a, #faaf3b); */
+  border-color:  #faaf3b;
+}
+
+/* =========================================================================
+   Decorative SVG accents (service pages). The wrapper handles the scroll
+   reveal (via .blur-up / .fade-* + [animateOnScroll]); the inner .decor-*
+   element carries a gentle, continuous motion so transforms never clash.
+   ========================================================================= */
+@keyframes decor-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes decor-float-x {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(12px); }
+}
+@keyframes decor-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.decor-float      { animation: decor-float 7s ease-in-out infinite; }
+.decor-float-slow { animation: decor-float 11s ease-in-out infinite; }
+.decor-float-x    { animation: decor-float-x 9s ease-in-out infinite; }
+.decor-spin-slow  { animation: decor-spin 28s linear infinite; }
+
+/* Animations applied directly to animatable SVG paint properties
+   (stroke-dashoffset, stroke, fill, fill-opacity) — these live on the
+   inner shapes, independent of the wrapper's transform/reveal. */
+@keyframes decor-dash {
+  to { stroke-dashoffset: -60; }
+}
+@keyframes decor-fill-fade {
+  0%, 100% { fill-opacity: 0.25; }
+  50%      { fill-opacity: 0.6; }
+}
+@keyframes decor-stroke-pulse {
+  0%, 100% { stroke: var(--my-sec-bg); }
+  50%      { stroke: var(--v4-sec-bg); }
+}
+@keyframes decor-fill-pulse {
+  0%, 100% { fill: var(--my-sec-bg); }
+  50%      { fill: var(--v4-sec-bg); }
+}
+.decor-dash         { animation: decor-dash 2.5s linear infinite; }
+.decor-fill-fade    { animation: decor-fill-fade 5s ease-in-out infinite; }
+.decor-stroke-pulse { animation: decor-stroke-pulse 7s ease-in-out infinite; }
+.decor-fill-pulse   { animation: decor-fill-pulse 6s ease-in-out infinite; }
+
+/* A stroked path that "draws" itself (stroke-dashoffset) when its wrapper
+   is revealed on scroll (the directive adds .active to the wrapper). */
+.decor-draw {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  transition: stroke-dashoffset 1200ms ease-in-out;
+}
+.blur-up.active .decor-draw { stroke-dashoffset: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .decor-float, .decor-float-slow, .decor-float-x, .decor-spin-slow,
+  .decor-dash, .decor-fill-fade, .decor-stroke-pulse, .decor-fill-pulse {
+    animation: none;
+  }
+  .decor-draw { transition: none; stroke-dashoffset: 0; }
+}
+
+.map-card{
+  aspect-ratio: 5 / 6;
+}
+
+.service-card{
+  aspect-ratio: 1 / 1;
+}
+
+/* =========================================================================
+   BLOG CONTENT — rendu du HTML produit par l'éditeur Quill (Angular admin).
+   Le contenu est injecté via [innerHTML] : ces styles DOIVENT être globaux
+   (l'encapsulation de composant ne s'applique pas au HTML dynamique) et
+   avoir une spécificité > au preflight Tailwind (sélecteur .blog-content xxx).
+   ========================================================================= */
+.blog-content {
+  color: #374151;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  word-break: break-word;
+}
+
+/* — Titres — */
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6 {
+  font-family: 'Josefin Sans', 'Inter', sans-serif;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.25;
+  margin: 1.6em 0 0.6em;
+}
+.blog-content h1 { font-size: 2rem; }
+.blog-content h2 { font-size: 1.6rem; }
+.blog-content h3 { font-size: 1.3rem; }
+.blog-content h4 { font-size: 1.12rem; }
+.blog-content h5 { font-size: 1rem; }
+.blog-content h6 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.03em; }
+
+/* — Paragraphes & inline — */
+.blog-content p { margin: 0 0 1.15em; }
+.blog-content strong, .blog-content b { font-weight: 700; }
+.blog-content em, .blog-content i { font-style: italic; }
+.blog-content u { text-decoration: underline; }
+.blog-content s, .blog-content strike { text-decoration: line-through; }
+.blog-content sub { vertical-align: sub; font-size: 0.8em; }
+.blog-content sup { vertical-align: super; font-size: 0.8em; }
+
+.blog-content a {
+  color: var(--v4-sec-bg);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.blog-content a:hover { color: var(--v4-prim-bg); }
+
+/* — Images & médias — */
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 1.4em 0;
+}
+.blog-content iframe,
+.blog-content .ql-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 10px;
+  margin: 1.4em 0;
+}
+
+/* — Citation — */
+.blog-content blockquote {
+  margin: 1.4em 0;
+  padding: 0.6em 1.2em;
+  border-left: 4px solid var(--v4-prim-bg);
+  background: #f9fafb;
+  color: #4b5563;
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+}
+
+/* — Séparateur / tableaux — */
+.blog-content hr { border: 0; border-top: 1px solid #e5e7eb; margin: 2em 0; }
+.blog-content table { width: 100%; border-collapse: collapse; margin: 1.4em 0; }
+.blog-content th, .blog-content td { border: 1px solid #e5e7eb; padding: 8px 12px; text-align: left; }
+.blog-content th { background: #f9fafb; font-weight: 600; }
+
+/* — Code — */
+.blog-content code {
+  background: #f3f4f6;
+  color: #b91c1c;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+/* Bloc de code Quill 2 (ql-code-block-container / ql-code-block) + fallback pre.ql-syntax */
+.blog-content .ql-code-block-container,
+.blog-content pre.ql-syntax,
+.blog-content pre {
+  background: #23241f;
+  color: #f8f8f2;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 1.4em 0;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.blog-content .ql-code-block { white-space: pre-wrap; }
+.blog-content .ql-code-block-container code,
+.blog-content pre code { background: transparent; color: inherit; padding: 0; }
+/* UI d'édition Quill non pertinente en lecture (sélecteur de langage du bloc de code) */
+.blog-content .ql-code-block-container .ql-ui { display: none; }
+
+/* =========================================================================
+   LISTES — Quill 2 rend TOUTES les listes en <ol> avec <li data-list="...">
+   et un <span class="ql-ui"> ; les puces/numéros viennent de compteurs CSS.
+   Règles répliquées depuis quill.snow.css (mappées .ql-editor → .blog-content).
+   ========================================================================= */
+.blog-content ol,
+.blog-content ul {
+  margin: 1.15em 0;
+  padding-left: 1.5em;
+}
+.blog-content li {
+  list-style-type: none;
+  padding-left: 1.5em;
+  position: relative;
+  margin: 0.3em 0;
+}
+.blog-content li > .ql-ui:before {
+  display: inline-block;
+  margin-left: -1.5em;
+  margin-right: 0.3em;
+  text-align: right;
+  white-space: nowrap;
+  width: 1.2em;
+}
+.blog-content li[data-list='bullet'] > .ql-ui:before { content: '\2022'; }
+.blog-content li[data-list='checked'] > .ql-ui:before { content: '\2611'; }
+.blog-content li[data-list='unchecked'] > .ql-ui:before { content: '\2610'; }
+
+.blog-content li[data-list] {
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.blog-content li[data-list='ordered'] { counter-increment: list-0; }
+.blog-content li[data-list='ordered'] > .ql-ui:before { content: counter(list-0, decimal) '. '; }
+
+.blog-content li[data-list='ordered'].ql-indent-1 { counter-increment: list-1; }
+.blog-content li[data-list='ordered'].ql-indent-1 > .ql-ui:before { content: counter(list-1, lower-alpha) '. '; }
+.blog-content li[data-list].ql-indent-1 { counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9; }
+.blog-content li[data-list='ordered'].ql-indent-2 { counter-increment: list-2; }
+.blog-content li[data-list='ordered'].ql-indent-2 > .ql-ui:before { content: counter(list-2, lower-roman) '. '; }
+.blog-content li[data-list].ql-indent-2 { counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9; }
+.blog-content li[data-list='ordered'].ql-indent-3 { counter-increment: list-3; }
+.blog-content li[data-list='ordered'].ql-indent-3 > .ql-ui:before { content: counter(list-3, decimal) '. '; }
+
+/* — Fallback listes HTML standard (si contenu semantic <ul>/<ol> sans data-list) — */
+.blog-content ul li:not([data-list]) { list-style-type: disc; padding-left: 0; }
+.blog-content ol li:not([data-list]) { list-style-type: decimal; padding-left: 0; }
+
+/* =========================================================================
+   ALIGNEMENT & INDENTATION (classes Quill sur les blocs)
+   ========================================================================= */
+.blog-content .ql-align-center { text-align: center; }
+.blog-content .ql-align-right { text-align: right; }
+.blog-content .ql-align-justify { text-align: justify; }
+
+.blog-content .ql-indent-1:not(li) { padding-left: 3em; }
+.blog-content .ql-indent-2:not(li) { padding-left: 6em; }
+.blog-content .ql-indent-3:not(li) { padding-left: 9em; }
+.blog-content .ql-indent-4:not(li) { padding-left: 12em; }
+.blog-content li.ql-indent-1 { margin-left: 1.5em; }
+.blog-content li.ql-indent-2 { margin-left: 3em; }
+.blog-content li.ql-indent-3 { margin-left: 4.5em; }

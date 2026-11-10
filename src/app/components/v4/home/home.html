@@ -1,0 +1,53 @@
+<section class="flex flex-col justify-between min-h-screen h-screen max-h-[105vh]  ">
+    <!-- <div class="red w-10 h-10"></div> -->
+     <div class="relative  top-0 w-full" style="height: 68vh;">
+         <div  class="  absolute top-0 w-full z-3">
+     
+             <v4-navbar [isTransparent]="false" [textWhite]="true"></v4-navbar>
+         </div>
+
+         <div class="w-full h-full md:aspect-video absolute top-0  left-0 bottom-0 z-2">
+     
+             <!-- <div class="max-w-7xl w-full mx-auto pt-[70px] "> -->
+                 @defer (on immediate) {
+
+                     <v4-my-slider></v4-my-slider>
+                 }@placeholder {
+                    <div class="w-full h-full bg-gray-200"></div>
+
+                 }
+                 <!-- <div class="hero-section h-150 w-full  bg-cover bg-no-repeat bg-start  z-1 border-none" [class.fade]="fade()">
+                    
+                 </div> -->
+             <!-- </div> -->
+         </div>
+         <div class="absolute w-full z-2 h-50 bg-gray-700/35 top-[50%] -translate-y-[25%] flex items-center justify-center">
+             <div class="max-w-5xl w-full mx-auto">
+                     <div class="text-white text-center  mx-auto">
+                         <h1 animateOnScroll class="fade-up text-xl md:text-4xl mb-7 ">YOUR TRUSTED FACILITY SERVICE PROVIDER</h1>
+                         <p animateOnScroll class="fade-up w-[90%] md:w-[65%] mx-auto text-md text-shadow-sm text-shadow-black/20">At SECO GROUPE, we don't just see a building; We see an opportunity to create smarter more resilient, and connected space that delivers real value.</p>
+                     </div>
+             </div>
+         </div>
+     </div>
+    <!--  -->
+    <div class=" bg-(--v4-sec-bg) w-full relative z-2 " style="height: 32vh;">
+        <img src="v4/assets/shadow-assets.svg" class="h-full md:h-80 absolute left-1 md:left-20 bottom-0" alt="asset1">
+        <div class="max-w-7xl px-5 md:px-0 w-full mx-auto flex flex-col items-center py-5 text-white">
+            <hr class="h-2 bg-(--v4-prim-bg) w-full text-(--v4-prim-bg) mb-5">
+            <h2 class="raleway-bold text-2xl">OUR SERVICES</h2>
+            <hr class="h-1 bg-white text-white w-20 my-3">
+<!-- [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden -->
+            <!-- <P class="w-[65%] md:w-[60%] text-center">Hospitality Support, Building Maintenance, Janitorial & Cleaning, Staffing Solutions, Concierge & Security Experts</P> -->
+            <div class="z-2 py-3 font-bold flex  lg:justify-center gap-3 no-scrollbar overflow-x-auto snap-x snap-mandatory w-full ">
+                <button animateOnScroll class="cursor-pointer fade-up p-2 px-4 rounded-full bg-(--v4-prim-bg) text-white text-md text-nowrap snap-center" routerLink="/services/hospitality-support">Hospitality Support</button>
+                <button animateOnScroll class="cursor-pointer fade-up p-2 px-4 rounded-full bg-(--v4-prim-bg) text-white text-md text-nowrap snap-center" routerLink="/services/building-maintenance">Building Maintenance</button>
+                <button animateOnScroll class="cursor-pointer fade-up p-2 px-4 rounded-full bg-(--v4-prim-bg) text-white text-md text-nowrap snap-center" routerLink="/services/janitorial-cleaning">Janitorial & Cleaning</button>
+                <button animateOnScroll class="cursor-pointer fade-up p-2 px-4 rounded-full bg-(--v4-prim-bg) text-white text-md text-nowrap snap-center" routerLink="/services/staffing-solutions">Staffing Solutions</button>
+                <button animateOnScroll class="cursor-pointer fade-up p-2 px-4 rounded-full bg-(--v4-prim-bg) text-white text-md text-nowrap snap-center" routerLink="/services/concierge-security-experts">Concierge & Security Experts</button>
+                <button animateOnScroll class="cursor-pointer fade-up p-2 px-4 rounded-full bg-(--v4-prim-bg) text-white text-md text-nowrap snap-center" routerLink="/seco-response/en">Customer Service</button>
+
+            </div>
+        </div>
+    </div>
+</section>

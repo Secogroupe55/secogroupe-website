@@ -1,0 +1,370 @@
+<section class="relative w-full min-h-[60vh] md:h-155 bg-[url(/img/services-country/02.png)]  bg-cover bg-start flex flex-col">
+    <div class="z-3">
+        <v4-navbar [textWhite]="true"/>
+
+    </div>
+    <div class="absolute bg-black/35 top-0 bottom-0 w-full"></div>
+    <div class="h-full flex items-center justify-center px-5 py-10">
+
+            <div class="text-white  p-5 w-full  md:w-[65%] md:-translate-y-[7%]">
+                <h1 class="font-bold text-2xl md:text-3xl mb-2">
+                    @if(pays !== 'haiti'){
+                        Workforce & Facility Solutions You Can Trust
+
+                    }@else {
+                        Un groupe, plusieurs expertises, une même vision d'excellence
+                    }
+                </h1>
+                <p class="text-lg md:text-xl">
+                    @if(pays !== 'haiti'){
+                        Delivering reliable hospitality, maintenance, cleaning, staffing, concierge, and security services that help organizations operate at the highest standards.
+                    }@else {
+                        À travers ses filiales spécialisées, SECO Groupe met à votre disposition un écosystème complet de services couvrant la sécurité, les technologies, la construction, la logistique, le transport, l'assurance et les solutions financières. Chaque entité partage un même engagement : fournir des services de qualité, innover en permanence et créer de la valeur durable pour nos clients et partenaires.
+                    }
+                </p>
+            </div>
+    </div>
+    <img src="assets/shape-seco.svg" class="absolute bottom-0" alt="shape-design">
+</section>
+
+<my-container>
+  <!-- <section class="col-span-12" >
+       
+        <div class="wrapper">
+           <div class="overlay">
+                <div>
+                    <h1>
+                        @if(pays === 'usa' || pays === 'canada' || pays === 'bahamas'){
+                            {{'SERVICES_USA.TITLE' | translate}}
+                        }@else{
+                            Seco Tech, Seco Distributors, Mass Funds, Mass Assurance, Security Experts etc
+                        }
+                    </h1>
+                    <div class="my-buttons">
+                        <button>{{'SERVICES_USA.CTAs.CTA1' | translate}}</button>
+                        <button>{{'SERVICES_USA.CTAs.CTA2' | translate}}</button>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </section>
+         -->
+    <!-- servicescard section fbad19 -->
+    <section class="col-span-12 rounded-[25px]" style=" padding: 32.5px 0;" id="services-cards">
+      <div class="title-main text-center mx-auto" style="max-width:700px;">
+          
+      
+       
+      </div>
+      @if(pays === 'usa'){
+          <h2 class="text-center font-bold text-gray-600 text-3xl" >
+              Our Services
+          </h2>
+      }@else{
+          <h2 class="text-center font-bold text-gray-600 my-10 text-3xl">
+              
+              @if(pays === 'canada'){
+                  <span>Our Services available in Canada</span>
+              }@else if(pays === 'haiti'){
+                  <span>Nos filiales disponibles en Haïti</span>
+              }@else if(pays === 'bahamas'){
+                  <span>Our Services available in Bahamas</span>
+
+              }@else if(pays === 'brazil'){
+                  <span>Our Services available in Brazil</span>
+
+              }
+          </h2>
+      }
+      
+      @if(!(pays === 'haiti')){
+            <div class="services-cards-container" style="margin-bottom: 70px;">
+
+               <a class="service-card-container" routerLink="/services/concierge-security-experts">
+                   <div class="service-card">
+                   <div class="front">
+                       <div class="icon-box">
+                           <!-- @if(filiale.details.length>0 && !filiale.icon.includes("fas")){
+                               <img [src]="filiale.icon" alt="logo" width="128px">
+                           }@else{ -->
+                                <img [src]="previewIcons.otherCountry.security" alt="logo" width="128px">
+                               <!-- <i [class]="previewIcons.security"></i> -->
+                           <!-- } -->
+                           
+                               <!-- <i class="ri-shield-check-fill"></i> -->
+                       </div>
+                       
+                       <div class="title-box">
+                           
+                           <!-- @if(filiale.details.length>0 && (pays === 'usa' || pays === 'canada' || pays === 'bahamas')){
+                               <span>{{filiale.details}}</span>
+                           }@else{
+                               <span>{{filiale.name}}</span>
+                           } -->
+                            <span>{{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD1.FRONT.TITLE' | translate}}</span>
+
+                       </div>
+                   </div>
+                   <div class="back">
+                       <!-- <div class="top">
+                           <img [src]="filiale.logo" class="bg-amber-300 rounded-xl" alt="logo seco">
+                       </div> -->
+                       <div class="overlay">
+                         <!-- @if (pays === 'usa' || pays === 'canada' || pays === 'bahamas'){ -->
+                               <!-- <span>{{filiale.details}}</span> -->
+                               <div class="title text-gray-700">
+                                   <!-- <i [class]="filiale.icon"></i> -->
+                                   {{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD1.BACK.TITLE' | translate}}
+                                   <!-- {{getPreviewInfo(filiale.details.toLocaleLowerCase())?.title}} -->
+                               </div>
+                               <p class="text-gray-600">
+                                {{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD1.BACK.DESC' | translate}}
+                                <!-- {{getPreviewInfo(filiale.details.toLocaleLowerCase())?.description}} -->
+                               </p>
+                         <!-- }@else{
+                               <span>{{getPreviewInfo(filiale.name.toLocaleLowerCase())?.title}}</span>
+                               <p>
+                                {{getPreviewInfo(filiale.name.toLocaleLowerCase())?.description}}
+                               </p>
+                         } -->
+                           <!-- <div class="title">
+                               <i [class]="filiale.icon"></i>
+                               {{filiale.name}}
+                           </div> -->
+                           <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet ratione obcaecati...</p> -->
+                       </div>
+                   </div>
+                   </div>
+               </a>
+
+               <a class="service-card-container" routerLink="/services/building-maintenance">
+                   <div class="service-card">
+                   <div class="front">
+                       <div class="icon-box">
+
+                                <img [src]="previewIcons.otherCountry.building" alt="logo" width="128px">
+                              
+                        </div>
+                       
+                       <div class="title-box">
+                           
+                          
+                            <span>{{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD2.FRONT.TITLE' | translate}}</span>
+
+                       </div>
+                   </div>
+                   <div class="back">
+                       
+                       <div class="overlay">
+                         
+                               <div class="title text-gray-700">
+                                   
+                                   {{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD2.BACK.TITLE' | translate}}
+                                   
+                               </div>
+                               <p class="text-gray-600">
+                                {{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD2.BACK.DESC' | translate}}
+                                
+                               </p>
+                         
+                       </div>
+                   </div>
+                   </div>
+               </a>
+
+               <a class="service-card-container" routerLink="/services/hospitality-support">
+                   <div class="service-card">
+                   <div class="front">
+                       <div class="icon-box">
+
+                                <img [src]="previewIcons.otherCountry.staffing" alt="logo" width="128px">
+                              
+                        </div>
+                       
+                       <div class="title-box">
+                           
+                          
+                            <span>{{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD4.FRONT.TITLE' | translate}}</span>
+
+                       </div>
+                   </div>
+                   <div class="back">
+                       
+                       <div class="overlay">
+                         
+                               <div class="title text-gray-700">
+                                   
+                                   {{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD4.BACK.TITLE' | translate}}
+                                   
+                               </div>
+                               <p class="text-gray-600">
+                                {{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD4.BACK.DESC' | translate}}
+                                
+                               </p>
+                         
+                       </div>
+                   </div>
+                   </div>
+               </a>
+
+               <a class="service-card-container" routerLink="/services/staffing-solutions">
+                   <div class="service-card">
+                   <div class="front">
+                       <div class="icon-box">
+
+                                <img [src]="previewIcons.otherCountry.hospitality" alt="logo" width="128px">
+                              
+                        </div>
+                       
+                       <div class="title-box">
+                           
+                          
+                            <span>{{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD3.FRONT.TITLE' | translate}}</span>
+
+                       </div>
+                   </div>
+                   <div class="back">
+                       
+                       <div class="overlay">
+                         
+                               <div class="title text-gray-700">
+                                   
+                                   {{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD3.BACK.TITLE' | translate}}
+                                   
+                               </div>
+                               <p class="text-gray-600">
+                                {{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD3.BACK.DESC' | translate}}
+                                
+                               </p>
+                         
+                       </div>
+                   </div>
+                   </div>
+               </a>
+
+               <a class="service-card-container" routerLink="/services/janitorial-cleaning">
+                   <div class="service-card">
+                   <div class="front">
+                       <div class="icon-box">
+
+                                <img [src]="previewIcons.otherCountry.janitorial" alt="logo" width="128px">
+                              
+                        </div>
+                       
+                       <div class="title-box">
+                           
+                          
+                            <span>{{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD5.FRONT.TITLE' | translate}}</span>
+
+                       </div>
+                   </div>
+                   <div class="back">
+                       
+                       <div class="overlay">
+                         
+                               <div class="title text-gray-700">
+                                   
+                                   {{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD5.BACK.TITLE' | translate}}
+                                   
+                               </div>
+                               <p class="text-gray-600">
+                                {{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD5.BACK.DESC' | translate}}
+                                
+                               </p>
+                         
+                       </div>
+                   </div>
+                   </div>
+               </a>
+
+               <a class="service-card-container" routerLink="/services/outdoor-care">
+                   <div class="service-card">
+                   <div class="front">
+                       <div class="icon-box">
+
+                                <img [src]="previewIcons.otherCountry.outdoor" alt="logo" width="128px">
+                              
+                        </div>
+                       
+                       <div class="title-box">
+                           
+                          
+                            <span>{{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD6.FRONT.TITLE' | translate}}</span>
+
+                       </div>
+                   </div>
+                   <div class="back">
+                       
+                       <div class="overlay">
+                         
+                               <div class="title text-gray-700">
+                                   
+                                   {{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD6.BACK.TITLE' | translate}}
+                                   
+                               </div>
+                               <p class="text-gray-600">
+                                {{'SERVICES_USA.SECTION_SERVICES.CARDS.CARD6.BACK.DESC' | translate}}
+                                
+                               </p>
+                         
+                       </div>
+                   </div>
+                   </div>
+               </a>
+               </div>
+             }@else {
+                <div class="flex justify-center p-2.5">
+
+                    <div class="grid min-[320px]:grid-cols-2 w-full  md:w-[60%]">
+    
+                        @for(cardData of cardDatas; track $index){
+                        <!-- [routerLink]="cardData.link" -->
+                            <a class="service-card-container service-card" [routerLink]="cardData.link">
+                               <div class="service-card">
+                               <div class="front">
+                                   <div class="icon-box">
+            
+                                            <img [src]="cardData.front.cover" alt="logo" class="w-16 lg:w-32" >
+                                          
+                                    </div>
+                                   
+                                   <div class="title-box">
+                                       
+                                      
+                                        <span>{{cardData.front.title}}</span>
+            
+                                   </div>
+                               </div>
+                               <div class="back">
+                                   
+                                   <div class="overlay">
+                                     
+                                           <div class="title text-gray-700">
+                                               
+                                               {{cardData.back.title}}
+                                               
+                                           </div>
+                                           <p class="text-gray-600">
+                                            {{cardData.back.desc}}
+                                            
+                                           </p>
+                                     
+                                   </div>
+                               </div>
+                               </div>
+                           </a>
+                        }
+                    </div>
+                </div>
+
+                
+             }
+          <!-- } -->
+              
+          
+         
+    </section>
+
+ </my-container>
+
+<my-footer/>

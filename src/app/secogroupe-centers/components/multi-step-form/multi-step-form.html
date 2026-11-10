@@ -1,0 +1,1533 @@
+@let t = text();
+
+<div class="form-wrapper flex flex-col">
+
+  <!-- STEPPER -->
+
+  <div class="stepper">
+
+    <div
+      class="step"
+      [class.active]="currentStep >= 1">
+
+      <div class="step-number">
+        1
+      </div>
+
+      <span>
+        {{ t.steps[0] }}
+      </span>
+
+    </div>
+
+
+    <div
+      class="line"
+      [class.active]="currentStep >= 2">
+    </div>
+
+
+    <div
+      class="step"
+      [class.active]="currentStep >= 2">
+
+      <div class="step-number">
+        2
+      </div>
+
+      <span>
+        {{ t.steps[1] }}
+      </span>
+
+    </div>
+
+
+    <div
+      class="line"
+      [class.active]="currentStep >= 3">
+    </div>
+
+    <div
+      class="step"
+      [class.active]="currentStep >= 3">
+
+      <div class="step-number">
+        3
+      </div>
+
+      <span>
+        {{ t.steps[2] }}
+      </span>
+
+    </div>
+
+    <div
+      class="line"
+      [class.active]="currentStep >= 4">
+    </div>
+
+
+
+    <div
+      class="step"
+      [class.active]="currentStep >= 4">
+
+      <div class="step-number">
+        4
+      </div>
+
+      <span>
+        {{ t.steps[3] }}
+      </span>
+
+    </div>
+
+  </div>
+
+
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="submit()" class="w-full">
+
+
+    <!-- STEP 1 -->
+
+    <div
+      *ngIf="currentStep === 1"
+      formGroupName="personalInfo"
+      class="step-content">
+
+      <div class="mb-5">
+          <h2>
+            {{ t.step1.title }}
+          </h2>
+          <span>
+            {{ t.step1.desc }}
+          </span>
+
+      </div>
+
+      <div class="w-full rounded-xl border border-gray-200 flex flex-col p-5 mb-5">
+        <label for="#" class="text-sm font-semibold">{{ t.step1.resume }}</label>
+        <input type="file" class="border border-gray-200" name="" id="">
+      </div>
+
+      <div class="rounded-xl border border-gray-200 flex flex-col p-5 mb-5">
+
+          <div class="grid grid-cols-2 gap-2.5">
+    
+              <div class="form-group">
+        
+                <label>
+                  {{ t.step1.firstName.label }}
+                </label>
+        
+                <input
+                  type="text"
+                  formControlName="firstName"
+                  [placeholder]="t.step1.firstName.placeholder">
+        
+        
+                <small
+                  *ngIf="
+                    personalInfo.get('firstName')?.touched &&
+                    personalInfo.get('firstName')?.invalid
+                  ">
+        
+                  {{ t.step1.firstName.required }}
+        
+                </small>
+        
+              </div>
+        
+        
+              <div class="form-group">
+        
+                <label>
+                  {{ t.step1.lastName.label }}
+                </label>
+        
+                <input
+                  type="text"
+                  formControlName="lastName"
+                  [placeholder]="t.step1.lastName.placeholder">
+        
+        
+                <small
+                  *ngIf="
+                    personalInfo.get('lastName')?.touched &&
+                    personalInfo.get('lastName')?.invalid
+                  ">
+        
+                  {{ t.step1.lastName.required }}
+        
+                </small>
+        
+              </div>
+          </div>
+
+          <div class="grid gap-2.5">
+            <div class="form-group">
+        
+                <label>
+                  {{ t.step1.email.label }}
+                </label>
+        
+                <input
+                  type="email"
+                  formControlName="email"
+                  [placeholder]="t.step1.email.placeholder">
+        
+        
+                <small
+                  *ngIf="
+                    personalInfo.get('email')?.touched &&
+                    personalInfo.get('email')?.invalid
+                  ">
+        
+                  {{ t.step1.email.required }}
+        
+                </small>
+        
+              </div>
+          </div>
+
+          <div class="grid gap-2.5">
+            <div class="form-group">
+        
+                <label>
+                  {{ t.step1.phone.label }} <span class="text-sm text-gray-400">{{ t.optional }}</span>
+                </label>
+        
+                <input
+                  type="tel"
+                  formControlName="phone"
+                  [placeholder]="t.step1.phone.placeholder">
+
+              </div>
+          </div>
+      </div>
+
+      <div class="rounded-xl border border-gray-200 flex flex-col p-5 mb-5">
+        <div class="grid gap-2.5">
+            <div class="form-group">
+        
+                <label>
+                  {{ t.step1.country.label }}
+                </label>
+        
+                <input
+                  type="text"
+                  formControlName="country"
+                  [placeholder]="t.step1.country.placeholder">
+
+
+                <small
+                  *ngIf="
+                    personalInfo.get('country')?.touched &&
+                    personalInfo.get('country')?.invalid
+                  ">
+
+                  {{ t.step1.country.required }}
+        
+                </small>
+        
+              </div>
+          </div>
+      </div>
+
+
+
+
+      <div class="actions">
+
+        <button
+          type="button"
+          class="next"
+          (click)="nextStep()">
+
+          {{ t.continue }}
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- STEP 2 -->
+
+    <!-- ========================= -->
+<!-- STEP 2 : LANGUAGES -->
+<!-- ========================= -->
+
+<!-- STEP 2 : LANGUAGES -->
+
+<div
+  *ngIf="currentStep === 2"
+  class="w-full max-w-4xl mx-auto"
+>
+
+  <!-- TITLE -->
+  <div class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900">
+      {{ t.step2.title }}
+    </h2>
+
+    <p class="mt-2 text-sm leading-6 text-slate-500">
+      {{ t.step2.desc }}
+    </p>
+  </div>
+
+
+  <!-- SEARCH -->
+  <div class="mb-3">
+
+    <label
+      for="languageSearch"
+      class="block mb-2 text-xs font-semibold uppercase text-slate-600"
+    >
+      {{ t.step2.searchLabel }}
+    </label>
+
+    <div class="relative  w-full
+          h-12
+          pl-12
+          pr-4
+          rounded-xl
+          border
+          border-slate-200
+          bg-white
+          text-sm
+          text-slate-700
+          placeholder:text-slate-400
+
+          outline-none
+          transition
+
+          focus:border-blue-700
+          focus:ring-4
+          focus:ring-blue-100">
+
+      <!-- SEARCH ICON -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+
+      <!-- <input type="text" > -->
+      <input
+        id="languageSearch"
+        type="text"
+        [placeholder]="t.step2.searchPlaceholder"
+        [(ngModel)]="languageSearch"
+        [ngModelOptions]="{ standalone: true }"
+
+        class=" border-none outline-none p-5 left-8 absolute -translate-y-0.5"
+        style="border: none; outline: none !important; box-shadow: none; "
+      />
+
+    </div>
+
+  </div>
+
+
+  <!-- LANGUAGE LIST -->
+  <div
+    class="
+      max-h-[320px]
+      overflow-y-auto
+
+      rounded-xl
+      border
+      border-slate-200
+
+      bg-white
+    "
+  >
+
+    <div
+      *ngFor="let language of filteredLanguages"
+      class="
+        flex
+        items-center
+        justify-between
+        gap-6
+
+        px-4
+        py-3
+
+        min-h-[64px]
+
+        border-b
+        border-slate-200
+
+        last:border-b-0
+
+        hover:bg-slate-50
+
+        transition
+      "
+    >
+
+      <!-- LANGUAGE -->
+      <div class="flex items-center gap-3 min-w-0">
+
+        <input
+          type="checkbox"
+          [id]="'language-' + language.code"
+          [checked]="language.selected"
+          (change)="toggleLanguage(language)"
+
+          class="
+            w-4
+            h-4
+            shrink-0
+
+            rounded
+            border-slate-300
+
+            text-blue-900
+
+            focus:ring-blue-800
+            focus:ring-offset-0
+
+            cursor-pointer
+          "
+        />
+
+        <label
+          [for]="'language-' + language.code"
+          class="
+            text-sm
+            font-semibold
+            text-slate-700
+
+            cursor-pointer
+          "
+        >
+          {{ languageName(language.code) }}
+        </label>
+
+      </div>
+
+
+      <!-- OPTIONS -->
+      <div class="flex items-center gap-3 shrink-0">
+
+        <!-- PROFICIENCY -->
+        <select
+          [(ngModel)]="language.proficiency"
+          [ngModelOptions]="{ standalone: true }"
+          [disabled]="!language.selected || language.primary"
+
+          class="
+            w-[138px]
+            h-10
+
+            px-4
+
+            rounded-lg
+
+            border
+            border-slate-200
+
+            bg-white
+
+            text-sm
+            text-slate-700
+
+            outline-none
+
+            transition
+
+            focus:border-blue-700
+            focus:ring-2
+            focus:ring-blue-100
+
+            disabled:bg-slate-50
+            disabled:text-slate-400
+            disabled:cursor-not-allowed
+
+            cursor-pointer
+          "
+        >
+
+          <option value="">
+            {{ t.step2.proficiencyPlaceholder }}
+          </option>
+
+          @for (level of t.step2.proficiencyLevels; track level.value) {
+            <option [value]="level.value">
+              {{ level.label }}
+            </option>
+          }
+
+        </select>
+
+
+        <!-- PRIMARY -->
+        <div class="flex items-center gap-2">
+
+          <input
+            type="checkbox"
+            [id]="'primary-' + language.code"
+            [checked]="language.primary"
+            [disabled]="!language.selected"
+            (change)="togglePrimary(language)"
+
+            class="
+              w-4
+              h-4
+
+              rounded
+
+              border-slate-300
+
+              text-blue-900
+
+              focus:ring-blue-800
+              focus:ring-offset-0
+
+              disabled:cursor-not-allowed
+
+              cursor-pointer
+            "
+          />
+
+          <label
+            [for]="'primary-' + language.code"
+            class="
+              text-sm
+              font-medium
+              text-slate-600
+
+              cursor-pointer
+            "
+          >
+            {{ t.step2.primary }}
+          </label>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ERROR -->
+  <div
+    *ngIf="languageError"
+    class="
+      mt-3
+      flex
+      items-center
+      gap-2
+
+      text-sm
+      font-medium
+      text-red-600
+    "
+  >
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      class="w-4 h-4"
+    >
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 8v4"></path>
+      <path d="M12 16h.01"></path>
+    </svg>
+
+    {{ t.step2.error }}
+
+  </div>
+
+
+  <!-- BUTTONS -->
+  <div class="flex items-center gap-3 mt-6">
+
+    <!-- BACK -->
+    <button
+      type="button"
+      (click)="previousStep()"
+
+      class="
+        h-12
+        px-6
+
+        rounded-lg
+
+        border
+        border-slate-200
+
+        bg-white
+
+        text-sm
+        font-semibold
+        text-blue-950
+
+        transition
+
+        hover:bg-slate-50
+        hover:border-slate-300
+
+        active:scale-[0.98]
+      "
+    >
+      {{ t.back }}
+    </button>
+
+
+    <!-- CONTINUE -->
+    <button
+      type="button"
+      (click)="continueFromLanguages()"
+
+      class="
+        flex-1
+        h-12
+
+        rounded-lg
+
+        bg-blue-950
+
+        text-sm
+        font-semibold
+        text-white
+
+        transition
+
+        hover:bg-blue-900
+
+        active:scale-[0.99]
+
+        focus:outline-none
+        focus:ring-4
+        focus:ring-blue-100
+      "
+    >
+      {{ t.continue }}
+    </button>
+
+  </div>
+
+</div>
+
+
+    <!-- STEP 3 -->
+
+   <!-- ===================================== -->
+<!-- STEP 3 : EXPERIENCE -->
+<!-- ===================================== -->
+
+<div
+  *ngIf="currentStep === 3"
+  class="w-full max-w-4xl mx-auto"
+>
+
+  <!-- TITLE -->
+  <div class="mb-8">
+    <h2 class="text-2xl font-bold text-[#082675]">
+      {{ t.step3.title }}
+    </h2>
+
+    <p class="mt-1 text-sm text-slate-500">
+      {{ t.step3.desc }}
+    </p>
+  </div>
+
+
+  <!-- ===================================== -->
+  <!-- CUSTOMER SERVICE EXPERIENCE -->
+  <!-- ===================================== -->
+
+  <div
+    class="
+      rounded-xl
+      border
+      border-slate-200
+      bg-white
+      p-5
+      md:p-6
+      mb-6
+    "
+  >
+
+    <p class="mb-4 text-sm font-semibold text-[#082675]">
+      {{ t.step3.supportQuestion }}
+    </p>
+
+    <div class="flex flex-wrap gap-3">
+
+      @for (option of t.step3.supportOptions; track option.value) {
+      <label
+        class="
+          flex
+          items-center
+          gap-2
+          min-h-10
+          px-4
+          rounded-lg
+          border
+          border-slate-200
+          cursor-pointer
+          transition
+
+          hover:bg-slate-50
+
+          has-[:checked]:border-[#082675]
+          has-[:checked]:bg-blue-50
+        "
+      >
+
+        <input
+          type="radio"
+          name="supportExperience"
+          [value]="option.value"
+          [(ngModel)]="experience.supportExperience"
+          [ngModelOptions]="{ standalone: true }"
+          class="
+            w-4
+            h-4
+            accent-[#082675]
+          "
+        />
+
+        <span class="text-sm font-medium text-slate-700">
+          {{ option.label }}
+        </span>
+
+      </label>
+      }
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ===================================== -->
+  <!-- WORK INTERESTS -->
+  <!-- ===================================== -->
+
+  <div
+    class="
+      rounded-xl
+      border
+      border-slate-200
+      bg-white
+      p-5
+      md:p-6
+    "
+  >
+
+    <!-- HEADER -->
+    <div class="mb-5">
+
+      <h3 class="text-sm font-semibold text-[#082675]">
+        {{ t.step3.workQuestion }}
+      </h3>
+
+      <p class="mt-1 text-xs text-slate-500">
+        {{ t.step3.workHint }}
+      </p>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- CATEGORIES -->
+    <!-- ===================================== -->
+
+    @for (category of t.step3.categories; track category.title) {
+    <div class="mb-7">
+
+      <h4
+        class="
+          mb-3
+          text-xs
+          font-semibold
+          uppercase
+          tracking-wide
+          text-slate-500
+        "
+      >
+        {{ category.title }}
+      </h4>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3">
+
+        <label
+          *ngFor="let item of category.options"
+          class="flex items-center gap-2 cursor-pointer"
+        >
+
+          <input
+            type="checkbox"
+            [checked]="isWorkSelected(item.value)"
+            (change)="toggleWork(item.value)"
+            class="
+              w-4
+              h-4
+              rounded
+              border-slate-300
+              accent-[#082675]
+              cursor-pointer
+            "
+          />
+
+          <span class="text-sm text-slate-700">
+            {{ item.label }}
+          </span>
+
+        </label>
+
+      </div>
+
+    </div>
+    }
+
+
+
+    <!-- ===================================== -->
+    <!-- OTHER -->
+    <!-- ===================================== -->
+
+    <div class="pt-1">
+
+      <label class="flex items-center gap-2 cursor-pointer">
+
+        <input
+          type="checkbox"
+          [(ngModel)]="experience.otherSelected"
+          [ngModelOptions]="{ standalone: true }"
+          class="
+            w-4
+            h-4
+            rounded
+            accent-[#082675]
+          "
+        />
+
+        <span class="text-sm font-semibold text-[#082675]">
+          {{ t.step3.otherLabel }}
+        </span>
+
+      </label>
+
+
+      <div
+        *ngIf="experience.otherSelected"
+        class="mt-4"
+      >
+
+        <textarea
+          [(ngModel)]="experience.otherDescription"
+          [ngModelOptions]="{ standalone: true }"
+          rows="4"
+          [placeholder]="t.step3.otherPlaceholder"
+          class="
+            w-full
+            resize-none
+            rounded-xl
+            border
+            border-slate-200
+            px-4
+            py-3
+            text-sm
+            text-slate-700
+            outline-none
+            transition
+
+            placeholder:text-slate-400
+
+            focus:border-[#082675]
+            focus:ring-4
+            focus:ring-blue-100
+          "
+        ></textarea>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ===================================== -->
+  <!-- ERROR -->
+  <!-- ===================================== -->
+
+  <p
+    *ngIf="experienceError"
+    class="mt-3 text-sm font-medium text-red-600"
+  >
+    {{ t.step3.error }}
+  </p>
+
+
+
+  <!-- ===================================== -->
+  <!-- NAVIGATION -->
+  <!-- ===================================== -->
+
+  <div class="flex items-center gap-3 mt-6">
+
+    <button
+      type="button"
+      (click)="previousStep()"
+      class="
+        h-12
+        px-6
+        rounded-lg
+        border
+        border-slate-200
+        bg-white
+        text-sm
+        font-semibold
+        text-[#082675]
+        transition
+
+        hover:bg-slate-50
+        hover:border-slate-300
+
+        active:scale-[0.98]
+      "
+    >
+      {{ t.back }}
+    </button>
+
+
+    <button
+      type="button"
+      (click)="continueFromExperience()"
+      class="
+        flex-1
+        h-12
+        rounded-lg
+        bg-[#082675]
+        text-sm
+        font-semibold
+        text-white
+        transition
+
+        hover:bg-[#061e5c]
+
+        active:scale-[0.99]
+
+        focus:outline-none
+        focus:ring-4
+        focus:ring-blue-100
+      "
+    >
+      {{ t.continue }}
+    </button>
+
+  </div>
+
+</div>
+
+
+
+    <!-- STEP 4 -->
+
+    <!-- ===================================== -->
+<!-- STEP 4 : AVAILABILITY -->
+<!-- ===================================== -->
+
+<div
+  *ngIf="currentStep === 4"
+  class="w-full max-w-4xl mx-auto"
+>
+
+  <!-- HEADER -->
+  <div class="mb-8">
+    <h2 class="text-2xl font-bold text-[#082675]">
+      {{ t.step4.title }}
+    </h2>
+
+    <p class="mt-1 text-sm text-slate-500">
+      {{ t.step4.desc }}
+    </p>
+  </div>
+
+
+  <!-- ===================================== -->
+  <!-- REMOTE WORK -->
+  <!-- ===================================== -->
+
+  <div
+    class="
+      mb-6
+      rounded-xl
+      border
+      border-slate-200
+      bg-white
+      p-5
+      md:p-6
+    "
+  >
+
+    <p class="mb-4 text-sm font-semibold text-[#082675]">
+      {{ t.step4.remoteQuestion }}
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+      <!-- YES -->
+      <label
+        class="
+          flex
+          min-h-12
+          items-center
+          justify-center
+          gap-2
+
+          rounded-lg
+          border
+          border-slate-200
+
+          cursor-pointer
+          transition
+
+          hover:bg-slate-50
+
+          has-[:checked]:border-[#082675]
+          has-[:checked]:bg-blue-50
+        "
+      >
+
+        <input
+          type="radio"
+          name="remoteWork"
+          value="yes"
+          [(ngModel)]="availability.remoteWork"
+          [ngModelOptions]="{ standalone: true }"
+          class="
+            h-4
+            w-4
+            accent-[#082675]
+          "
+        />
+
+        <span class="text-sm font-medium text-slate-700">
+          {{ t.yes }}
+        </span>
+
+      </label>
+
+
+      <!-- NO -->
+      <label
+        class="
+          flex
+          min-h-12
+          items-center
+          justify-center
+          gap-2
+
+          rounded-lg
+          border
+          border-slate-200
+
+          cursor-pointer
+          transition
+
+          hover:bg-slate-50
+
+          has-[:checked]:border-[#082675]
+          has-[:checked]:bg-blue-50
+        "
+      >
+
+        <input
+          type="radio"
+          name="remoteWork"
+          value="no"
+          [(ngModel)]="availability.remoteWork"
+          [ngModelOptions]="{ standalone: true }"
+          class="
+            h-4
+            w-4
+            accent-[#082675]
+          "
+        />
+
+        <span class="text-sm font-medium text-slate-700">
+          {{ t.no }}
+        </span>
+
+      </label>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===================================== -->
+  <!-- SCHEDULE / SHIFT -->
+  <!-- ===================================== -->
+
+  <div
+    class="
+      mb-6
+      rounded-xl
+      border
+      border-slate-200
+      bg-white
+      p-5
+      md:p-6
+    "
+  >
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+      <!-- SCHEDULE -->
+      <div>
+
+        <label
+          for="schedulePreference"
+          class="mb-2 block text-sm font-semibold text-[#082675]"
+        >
+          {{ t.step4.scheduleLabel }}
+        </label>
+
+        <select
+          id="schedulePreference"
+          [(ngModel)]="availability.schedulePreference"
+          [ngModelOptions]="{ standalone: true }"
+
+          class="
+            h-12
+            w-full
+
+            rounded-lg
+            border
+            border-slate-200
+
+            bg-white
+
+            px-4
+
+            text-sm
+            text-slate-700
+
+            outline-none
+            transition
+
+            focus:border-[#082675]
+            focus:ring-4
+            focus:ring-blue-100
+          "
+        >
+
+          <option value="">
+            {{ t.step4.selectPlaceholder }}
+          </option>
+
+          @for (option of t.step4.scheduleOptions; track option.value) {
+            <option [value]="option.value">
+              {{ option.label }}
+            </option>
+          }
+
+        </select>
+
+      </div>
+
+
+      <!-- SHIFT -->
+      <div>
+
+        <label
+          for="shiftPreference"
+          class="mb-2 block text-sm font-semibold text-[#082675]"
+        >
+          {{ t.step4.shiftLabel }}
+        </label>
+
+        <select
+          id="shiftPreference"
+          [(ngModel)]="availability.shiftPreference"
+          [ngModelOptions]="{ standalone: true }"
+
+          class="
+            h-12
+            w-full
+
+            rounded-lg
+            border
+            border-slate-200
+
+            bg-white
+
+            px-4
+
+            text-sm
+            text-slate-700
+
+            outline-none
+            transition
+
+            focus:border-[#082675]
+            focus:ring-4
+            focus:ring-blue-100
+          "
+        >
+
+          <option value="">
+            {{ t.step4.selectPlaceholder }}
+          </option>
+
+          @for (option of t.step4.shiftOptions; track option.value) {
+            <option [value]="option.value">
+              {{ option.label }}
+            </option>
+          }
+
+        </select>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===================================== -->
+  <!-- START DATE -->
+  <!-- ===================================== -->
+
+  <div
+    class="
+      mb-6
+      rounded-xl
+      border
+      border-slate-200
+      bg-white
+      p-5
+      md:p-6
+    "
+  >
+
+    <label
+      for="startDate"
+      class="mb-2 block text-sm font-semibold text-[#082675]"
+    >
+      {{ t.step4.startDate.label }}
+    </label>
+
+    <input
+      id="startDate"
+      type="text"
+      [placeholder]="t.step4.startDate.placeholder"
+
+      [(ngModel)]="availability.startDate"
+      [ngModelOptions]="{ standalone: true }"
+
+      class="
+        h-12
+        w-full
+
+        rounded-lg
+        border
+        border-slate-200
+
+        px-4
+
+        text-sm
+        text-slate-700
+
+        placeholder:text-slate-400
+
+        outline-none
+        transition
+
+        focus:border-[#082675]
+        focus:ring-4
+        focus:ring-blue-100
+      "
+    />
+
+  </div>
+
+
+  <!-- ===================================== -->
+  <!-- CERTIFICATIONS -->
+  <!-- ===================================== -->
+
+  <div
+    class="
+      mb-6
+      rounded-xl
+      border
+      border-slate-200
+      bg-white
+      p-5
+      md:p-6
+    "
+  >
+
+    <label
+      for="certifications"
+      class="mb-2 block text-sm font-semibold text-[#082675]"
+    >
+      {{ t.step4.certificationsLabel }}
+      <span class="font-normal text-slate-500">
+        {{ t.optional }}
+      </span>
+    </label>
+
+    <textarea
+      id="certifications"
+      rows="4"
+
+      [(ngModel)]="availability.certifications"
+      [ngModelOptions]="{ standalone: true }"
+
+      class="
+        w-full
+        resize-y
+
+        rounded-lg
+        border
+        border-slate-200
+
+        px-4
+        py-3
+
+        text-sm
+        text-slate-700
+
+        outline-none
+        transition
+
+        focus:border-[#082675]
+        focus:ring-4
+        focus:ring-blue-100
+      "
+    ></textarea>
+
+  </div>
+
+
+  <!-- ===================================== -->
+  <!-- AGREEMENTS -->
+  <!-- ===================================== -->
+
+  <div
+    class="
+      mb-6
+      rounded-xl
+      border
+      border-slate-200
+      bg-slate-50
+      p-5
+      md:p-6
+    "
+  >
+
+    <!-- REQUIRED CONSENT -->
+    <label
+      class="
+        mb-4
+        flex
+        items-start
+        gap-3
+        cursor-pointer
+      "
+    >
+
+      <input
+        type="checkbox"
+
+        [(ngModel)]="availability.agreeToContact"
+        [ngModelOptions]="{ standalone: true }"
+
+        class="
+          mt-1
+          h-4
+          w-4
+          shrink-0
+
+          rounded
+          border-slate-300
+
+          accent-[#082675]
+        "
+      />
+
+      <span class="text-sm leading-5 text-slate-700">
+        {{ t.step4.agreeToContact }}
+      </span>
+
+    </label>
+
+
+    <!-- EMAIL ALERTS -->
+    <label
+      class="
+        flex
+        items-start
+        gap-3
+        cursor-pointer
+      "
+    >
+
+      <input
+        type="checkbox"
+
+        [(ngModel)]="availability.emailAlerts"
+        [ngModelOptions]="{ standalone: true }"
+
+        class="
+          mt-1
+          h-4
+          w-4
+          shrink-0
+
+          rounded
+          border-slate-300
+
+          accent-[#082675]
+        "
+      />
+
+      <span class="text-sm leading-5 text-slate-700">
+
+        {{ t.step4.emailAlerts }}
+
+        <span class="text-slate-500">
+          {{ t.step4.emailAlertsNote }}
+        </span>
+
+      </span>
+
+    </label>
+
+
+    <!-- NOTICE -->
+    <p class="mt-5 text-xs leading-5 text-slate-500">
+
+      {{ t.step4.notice }}
+
+    </p>
+
+  </div>
+
+
+  <!-- ===================================== -->
+  <!-- ERROR -->
+  <!-- ===================================== -->
+
+  <div
+    *ngIf="availabilityError"
+    class="
+      mb-4
+      rounded-lg
+      bg-red-50
+      px-4
+      py-3
+      text-sm
+      font-medium
+      text-red-600
+    "
+  >
+    {{ t.step4.error }}
+  </div>
+
+
+  <!-- ===================================== -->
+  <!-- NAVIGATION -->
+  <!-- ===================================== -->
+
+  <div class="flex items-center gap-3">
+
+    <!-- BACK -->
+    <button
+      type="button"
+      (click)="previousStep()"
+
+      class="
+        h-12
+        px-6
+
+        rounded-lg
+
+        border
+        border-slate-200
+
+        bg-white
+
+        text-sm
+        font-semibold
+        text-[#082675]
+
+        transition
+
+        hover:bg-slate-50
+        hover:border-slate-300
+
+        active:scale-[0.98]
+      "
+    >
+      {{ t.back }}
+    </button>
+
+
+    <!-- SUBMIT -->
+    <button
+      type="button"
+      (click)="submitApplication()"
+
+      class="
+        flex-1
+        h-12
+
+        rounded-lg
+
+        bg-[#082675]
+
+        text-sm
+        font-semibold
+        text-white
+
+        transition
+
+        hover:bg-[#061e5c]
+
+        active:scale-[0.99]
+
+        focus:outline-none
+        focus:ring-4
+        focus:ring-blue-100
+      "
+    >
+      {{ t.step4.submit }}
+    </button>
+
+  </div>
+
+</div>
+
+
+  </form>
+
+</div>

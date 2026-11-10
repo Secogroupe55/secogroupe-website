@@ -1,0 +1,211 @@
+
+  
+
+
+
+    <section class="w-full h-screen max-h-155 bg-[url(/v4/img/services/mixed_workers.png)] bg-cover bg-center relative">
+        <div class="z-5 absolute w-full">
+            <v4-navbar [textWhite]="true" [isTransparent]="true" />
+        </div>
+        <div class="absolute z-2 inset-0 bg-black/55 "></div>
+        <div class="z-2 relative translate-y-[25%] max-w-6xl text-white mx-auto px-5 py-24 md:py-32 text-center">
+            <h1 class="text-4xl  font-bold josefin-sans mb-4">TURN-KEY HOSPITALITY & FACILITY MANAGEMENT SOLUTIONS</h1>
+            <p class="max-w-2xl mx-auto text-2xl">
+            At SECO, we believe exceptional environments are built through exceptional service.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 ">
+        <my-container>
+                <div class="flex flex-col items-center text-gray-700">
+                    <h2 class="text-center font-bold  text-3xl my-5" >Our Services</h2>
+
+                    <p class="text-2xl">
+                        Our turn-key
+                        hospitality and facility management solutions bring together expert housekeeping,
+                        building maintenance, workforce coordination, operational support, and quality assurance into one seamless, fully integrated solution. <br><br>Whether serving hotels, resorts, healthcare facilities, residential communities, or
+                        commercial properties, we are committed to
+                        creating clean, safe, efficient, and welcoming
+                        environments that protect your investment,
+                        enhance operational performance, and
+                        elevate every guest and resident experience.<br><br>
+                        As your trusted partner, we manage the
+                        details with precision and professionalism,
+                        allowing you to focus on what matters most
+                        growing your business and delivering excellence.
+                    </p>
+                </div>
+        </my-container>
+    </section>
+
+    <card-services [showTitle]="false"></card-services>
+    
+<!-- 
+    <section class="pt-0 pb-20 mt-15">
+ 
+        <my-container>
+                <div class="grid lg:grid-cols-2 gap-16 items-center col-span-12">
+                
+                <div class="space-y-8 transform transition-all duration-1000 delay-300 translate-x-0 opacity-100">
+                    <div class="space-y-6" data-aos="fade-up" data-aos-duration="1500">
+                        <h2 class="lg:text-4xl font-bold text-gray-700 leading-tight">{{'SERVICES.HERO_SECTION.TITLE' | translate}}</h2>
+                            <p class="text-md text-gray-600 leading-relaxed">
+                            {{'SERVICES.HERO_SECTION.DESC' | translate}}
+                    </div>
+                </div>
+                <div class="transform transition-all duration-1000 translate-x-0 opacity-100">
+                    <hss-hero-section/>
+                </div>
+            </div>
+        </my-container>
+    </section> -->
+
+     <section class="py-20">
+        <div class="text-center mb-16">
+                <h2 animateOnScroll class="fade-up text-3xl font-bold mb-4 text-gray-700" [innerHtml]="'SERVICES.SECTION_CLIENTS.TITLE' | translate"></h2>
+                <p animateOnScroll class="fade-up text-gray-600 max-w-2xl mx-auto text-2xl">
+                    {{'SERVICES.SECTION_CLIENTS.DESC' | translate}}
+                </p>
+            </div>
+            <infinite-horizontal-scroll/>
+    <!-- <div class="overflow-hidden relative" >
+        <div class=" marquee space-x-12">
+        
+        <img src="img/clients/brana_logo.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/Grand-Sierra-Resort-Logo.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/grand_geneva_logo.jpeg" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/Kalahari_Resorts_Horiz_Blue-768x257.avif" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_barbancourt.jpg" alt="Sponsor 1" class="h-16">
+        
+        <img src="img/clients/logo_best_western.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_boomtown_resort.webp" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_camelback_resort.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_chulavista.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_dells_resort.png" alt="Sponsor 1" class="h-16">
+        
+        <img src="img/clients/logo_fne.webp" alt="Sponsor 1" class="h-32 translate-y-[20%]">
+        <img src="img/clients/logo_ihsi.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_marriott.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_monarch_resort.png" alt="Sponsor 1" class="h-16">
+
+
+
+        <img src="img/clients/brana_logo.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/Grand-Sierra-Resort-Logo.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/grand_geneva_logo.jpeg" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/Kalahari_Resorts_Horiz_Blue-768x257.avif" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_barbancourt.jpg" alt="Sponsor 1" class="h-16">
+        
+        <img src="img/clients/logo_best_western.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_boomtown_resort.webp" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_camelback_resort.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_chulavista.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_dells_resort.png" alt="Sponsor 1" class="h-16">
+        
+        <img src="img/clients/logo_fne.webp" alt="Sponsor 1" class="h-32 -translate-y-[200%]">
+        <img src="img/clients/logo_ihsi.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_marriott.png" alt="Sponsor 1" class="h-16">
+        <img src="img/clients/logo_monarch_resort.png" alt="Sponsor 1" class="h-16">
+
+        </div>
+    </div> -->
+    </section>
+
+    <paper-design-section>
+        <div class="flex flex-col items-center">
+          <h2 class="p-5 text-3xl Raleway text-gray-700">Our Services</h2>  
+          
+          <my-container>
+            <div class="flex flex-col gap-20 py-10">
+
+                <div animateOnScroll class="fade-up overflow-hidden  grid lg:grid-cols-[438px_1fr] w-full rounded-xl " >
+                    <div class="lg:rounded-tr-[100px] h-[292px] overflow-hidden">
+
+                        <v4-slider [images]="serviceSections[5].imageUrl"/>
+                    </div>
+                  <!-- <img [src]="serviceSections[5].imageUrl[1]" class="lg:rounded-tr-[100px] "  alt="services"> -->
+                  <div class=" flex flex-col justify-center px-5 py-3  lg:h-[50%] bg-white  mt-auto lg:rounded-tr-[100px] " >
+                      <h2 class="josefin-sans-bold text-3xl text-gray-600">{{'SERVICES.SECTION_SERVICES.SERVICES.SERVICE6.TITLE' | translate}}</h2>
+                      <p class="josefin-sans-bold text-gray-500 text-xl">{{'SERVICES.SECTION_SERVICES.SERVICES.SERVICE6.DESC' | translate}}</p>
+                  </div>
+                </div>
+
+                <div animateOnScroll class="fade-up overflow-hidden grid lg:grid-cols-[1fr_438px]  w-full rounded-xl ">
+                    <div class="lg:rounded-tl-[100px] lg:order-2 h-[292px] overflow-hidden">
+
+                        <v4-slider [images]="serviceSections[0].imageUrl"/>
+                    </div>
+                    <!-- <img  [src]="serviceSections[0].imageUrl[2]" class="lg:rounded-tl-[100px] lg:order-2" alt="services"> -->
+                    <div class="mt-auto flex text-right flex-col justify-center lg:h-[50%] bg-white px-5 py-3 lg:rounded-tl-[100px] lg:order-1" >
+                        <h2 class="josefin-sans-bold text-3xl text-gray-600">{{'SERVICES.SECTION_SERVICES.SERVICES.SERVICE1.TITLE' | translate}}</h2>
+                        <p class="josefin-sans-bold text-gray-500 text-xl">{{'SERVICES.SECTION_SERVICES.SERVICES.SERVICE1.DESC' | translate}}</p>
+                    </div>
+                </div>
+
+                <div animateOnScroll class="fade-up overflow-hidden  grid lg:grid-cols-[438px_1fr] w-full rounded-xl ">
+                  <div class="lg:rounded-tr-[100px] h-[292px] overflow-hidden">
+
+                        <v4-slider [images]="serviceSections[1].imageUrl"/>
+                    </div>
+                  <!-- <img [src]="serviceSections[1].imageUrl[1]" class="lg:rounded-tr-[100px]" alt="services"> -->
+                  <div class=" flex  flex-col justify-center px-5 py-3  lg:h-[50%] bg-white  mt-auto lg:rounded-tr-[100px]" >
+                      <h2 class="josefin-sans-bold text-3xl text-gray-600">{{'SERVICES.SECTION_SERVICES.SERVICES.SERVICE2.TITLE' | translate}}</h2>
+                      <p class="josefin-sans-bold text-gray-500 text-xl">{{'SERVICES.SECTION_SERVICES.SERVICES.SERVICE2.DESC' | translate}}</p>
+                  </div>
+                </div>
+
+                <div animateOnScroll class="fade-up overflow-hidden grid lg:grid-cols-[1fr_438px] w-full rounded-xl ">
+                    <div class="lg:rounded-tl-[100px] lg:order-2 h-[292px] overflow-hidden">
+
+                        <v4-slider [images]="serviceSections[2].imageUrl"/>
+                    </div>
+                    <!-- <img class="lg:rounded-tl-[100px] lg:order-2" [src]="serviceSections[2].imageUrl[1]" alt="services"> -->
+                    <div class="mt-auto flex text-right flex-col justify-center lg:h-[50%] bg-white px-5 py-3 lg:rounded-tl-[100px] lg:order-1" >
+                        <h2 class="josefin-sans-bold text-3xl text-gray-600">{{'SERVICES.SECTION_SERVICES.SERVICES.SERVICE3.TITLE' | translate}}</h2>
+                        <p class="josefin-sans-bold text-gray-500 text-xl">{{'SERVICES.SECTION_SERVICES.SERVICES.SERVICE3.DESC' | translate}}</p>
+                    </div>
+                </div>
+
+                <div animateOnScroll class="fade-up overflow-hidden  grid lg:grid-cols-[438px_1fr] w-full rounded-xl ">
+                  <div class="lg:rounded-tr-[100px] h-[292px] overflow-hidden">
+
+                        <v4-slider [images]="serviceSections[3].imageUrl"/>
+                    </div>
+                    <!-- <img [src]="serviceSections[3].imageUrl[0]" class="lg:rounded-tr-[100px] " alt="services"> -->
+                  <div class=" flex  flex-col justify-center px-5 py-3  lg:h-[50%] bg-white  mt-auto lg:rounded-tr-[100px]" >
+                      <h2 class="josefin-sans-bold text-3xl text-gray-600">{{'SERVICES.SECTION_SERVICES.SERVICES.SERVICE4.TITLE' | translate}}</h2>
+                      <p class="josefin-sans-bold text-gray-500 text-xl">{{'SERVICES.SECTION_SERVICES.SERVICES.SERVICE4.DESC' | translate}}</p>
+                  </div>
+                </div>
+
+                <div animateOnScroll class="fade-up overflow-hidden grid lg:grid-cols-[1fr_438px] w-full rounded-xl ">
+                    <div class="lg:rounded-tl-[100px] lg:order-2 h-[292px] overflow-hidden">
+
+                        <v4-slider [images]="serviceSections[4].imageUrl"/>
+                    </div>
+                    <!-- <img class="lg:rounded-tl-[100px] lg:order-2" [src]="serviceSections[4].imageUrl[0]" alt="services"> -->
+                    <div class="mt-auto flex text-right flex-col justify-center lg:h-[50%] bg-white px-5 py-3 lg:rounded-tl-[100px] lg:order-1" >
+                        <h2 class="josefin-sans-bold text-3xl text-gray-600">{{'SERVICES.SECTION_SERVICES.SERVICES.SERVICE5.TITLE' | translate}}</h2>
+                        <p class="josefin-sans-bold text-gray-500 text-xl">{{'SERVICES.SECTION_SERVICES.SERVICES.SERVICE5.DESC' | translate}}</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+          </my-container>
+        </div>
+    </paper-design-section>
+
+   
+
+
+    
+
+
+    <!-- Footer bg-gray-900-->
+   <my-footer />
+
+   
+

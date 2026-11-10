@@ -1,0 +1,12 @@
+h1,h2,h3,h4,h5,h6,p,div,span,button,nav,a,summary{
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Masque le triangle natif de <summary> : l'icône + le remplace. */
+.faq-item summary {
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
